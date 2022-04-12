@@ -46,8 +46,9 @@ def more(text, numlines=10):
         if lines and getreply() not in [b'y', b'Y']:
             break
 
-    if __name__ == '__main__':  # если выполняется, а не импортируется
-        if len(sys.argv) == 1:  # если нет аргументов командной строки
-            more(sys.stdin.read())  # вывести содержимое stdin
-        else:
-            more(open(sys.argv[1]).read())  # иначе вывести содержимое файла
+
+if __name__ == '__main__':  # если выполняется, а не импортируется
+    if len(sys.argv) == 1:  # если нет аргументов командной строки
+        more(sys.stdin.read())  # вывести содержимое stdin
+    else:
+        more(open(sys.argv[1]).read())  # иначе вывести содержимое файла

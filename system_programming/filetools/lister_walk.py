@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+"""
+Пример 4.4
+Выводит список файлов в дереве каталогов с помощью os.walk
+"""
+
+import os
+import sys
+
+
+def lister(root):  # для корневого каталога перечисляет
+    for (thisdir, subshere, fileshere) in os.walk(root):
+        print('[' + thisdir + ']')  # каталоги в дереве
+        for fname in fileshere:  # вывод файлов в каталоге
+            path = os.path.join(thisdir, fname)  # добавить имя каталога
+            print(path)
+
+
+if __name__ == '__main__':
+    if len(sys.argv) == 1:
+        lister('.')
+    else:
+        lister(sys.argv[1])  # имя каталога в коммандной строке
